@@ -1,14 +1,15 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const connectToDb = require('./config/connectToDb');
-require('dotenv').config();
 
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 // Connect to MongoDB
 const connectDB = async () => {
@@ -24,9 +25,17 @@ const connectDB = async () => {
   }
 };
 
+// Import routers
+const apiRouter = require('./routes/api');
+const authRouter = require('./routes/auth');
+const postRouter = require('./routes/post');
+const usersRouter = require('./routes/users'); 
 
-app.use('/api', require('./routes/api'));
-
+// Register route middlewares
+app.use('/api', apiRouter);
+app.use('/api/users', usersRouter); 
+app.use('/api/auth', authRouter);
+app.use('/api/post', postRouter);
 
 connectDB();
 

@@ -6,6 +6,7 @@ import CollectionOne from './components/collectionOne';
 import CollectionTwo from './components/collectionTwo';
 import CollectionThree from './components/collectionThree';
 import NewVideoForm from './pages/newVideoForm';
+import Login  from './pages/Login';
 import RegisterForm from './pages/register';
 import Navbar from './components/Navbar';
 
@@ -20,10 +21,10 @@ const App = () => {
           <Route path="/collectiontwo" element={<CollectionTwo />} />
           <Route path="/collectionthree" element={<CollectionThree />} />
           <Route path="/newvideo" element={<NewVideoForm />} />
+          <Route path="/Login" element={<Login/>} />
           <Route path="/register" element={<RegisterForm />} />
         </Routes>
       </div>
-      <footer>&copy; Copyright 2024</footer>
     </Router>
   );
 }

@@ -9,9 +9,16 @@ const Navbar = () => {
       <Link to="/collectiontwo">Collection Two</Link>
       <Link to="/collectionthree">Collection Three</Link>
       <Link to="/newvideo">New Video</Link>
+      <Link to="/Login">Login</Link>
       <Link to="/register">Register</Link>
     </nav>
   );
 }
 
 export default Navbar;
+
+
+
+
+
+
